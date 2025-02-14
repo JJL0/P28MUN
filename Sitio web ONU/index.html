@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P28MUN II</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Encabezado */
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #002855;
+            color: white;
+            position: relative;
+        }
+
+        .header img {
+            width: 110px; /* Aumentado ligeramente */
+            height: auto;
+            position: absolute;
+        }
+
+        .escudo-izq { left: 12%; }
+        .escudo-der { right: 12%; }
+
+        /* Menú */
+        .menu {
+            display: flex;
+            justify-content: center;
+            background: #002855;
+            padding: 10px 0;
+            color: white;
+            gap: 20px;
+        }
+
+        .menu-item {
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .menu-item::before,
+        .menu-item::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            margin: 5px 0;
+        }
+
+        .menu-item::before { background: white; }
+        .menu-item::after { height: 3px; }
+
+        /* Colores de líneas */
+        .inicio::after { background: #FFFF99; }
+        .handbook::after { background: #ADD8E6; }
+        .consegha::after { background: #4682B4; }
+        .consegb::after { background: #FA8072; }
+        .consegc::after { background: #90EE90; }
+        .discurso::after { background: #FFD580; }
+        .portafolio::after { background: #D8BFD8; }
+
+        /* Resaltado */
+        .menu-item:hover {
+            border: 2px solid black;
+            padding: 8px 18px;
+        }
+
+        /* Fondos */
+        .doc-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 50px;
+            min-height: 100vh;
+        }
+
+        #inicio { background: #FFFF99; align-items: flex-start; padding-left: 50px; }
+        #handbook { background: #ADD8E6; }
+        #consegha { background: #4682B4; }
+        #consegb { background: #FA8072; }
+        #consegc { background: #90EE90; }
+        #discurso { background: #FFD580; }
+        #portafolio { background: #D8BFD8; }
+
+        .active {
+            display: flex;
+        }
+
+        /* Títulos en negro */
+        .doc-container p {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            margin: 5px 0;
+        }
+
+        /* Imágenes */
+        .doc-container a {
+            text-decoration: none;
+        }
+
+        .doc-container img {
+            width: 200px; /* Imágenes más grandes */
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .doc-container img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Diseño para CONSEGHA, CONSEGB, CONSEGC */
+        .doc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 60%;
+        }
+
+        .doc-row .doc-box {
+            flex: 1;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <div class="header">
+        <img src="escudo1.png" alt="Escudo Izquierdo" class="escudo-izq"> 
+        <h1>P28MUN II</h1>
+        <img src="escudo2.png" alt="Escudo Derecho" class="escudo-der">
+    </div>
+
+    <!-- Menú -->
+    <div class="menu">
+        <div class="menu-item inicio" onclick="mostrarSeccion('inicio')">Inicio</div>
+        <div class="menu-item handbook" onclick="mostrarSeccion('handbook')">Handbook</div>
+        <div class="menu-item consegha" onclick="mostrarSeccion('consegha')">CONSEGHA</div>
+        <div class="menu-item consegb" onclick="mostrarSeccion('consegb')">CONSEGB</div>
+        <div class="menu-item consegc" onclick="mostrarSeccion('consegc')">CONSEGC</div>
+        <div class="menu-item discurso" onclick="mostrarSeccion('discurso')">Discurso de Apertura</div>
+        <div class="menu-item portafolio" onclick="mostrarSeccion('portafolio')">Portafolio</div>
+    </div>
+
+    <!-- Contenido -->
+    <div id="inicio" class="doc-container active">
+        <img src="modelo1.png" alt="Modelo ONU">
+        <p>Esta es una estrategia que se inició en el grado séptimo con fines de impulsar la oratoria en los estudiantes de la promoción 2028.</p>
+    </div>
+
+    <div id="handbook" class="doc-container">
+        <p>Handbook</p>
+        <a href="handbook.pdf" target="_blank">
+            <img src="handbook.png" alt="Handbook">
+        </a>
+    </div>
+
+    <!-- CONSEGHA, CONSEGB, CONSEGC con nuevo diseño -->
+    <div id="consegha" class="doc-container">
+        <div class="doc-row">
+            <div class="doc-box">
+                <a href="1delegaciones.pdf" target="_blank">
+                    <img src="1delegaciones.png" alt="Delegaciones">
+                </a>
+                <p>Delegaciones</p>
+            </div>
+            <div class="doc-box">
+                <a href="1guia_academica.pdf" target="_blank">
+                    <img src="guia.png.1" alt="Guía Académica">
+                </a>
+                <p>Guía Académica</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="consegb" class="doc-container">
+        <div class="doc-row">
+            <div class="doc-box">
+                <a href="2delegaciones.pdf" target="_blank">
+                    <img src="1delegaciones.png" alt="Delegaciones">
+                </a>
+                <p>Delegaciones</p>
+            </div>
+            <div class="doc-box">
+                <a href="guia_academica.pdf" target="_blank">
+                    <img src="2guia.png" alt="Guía Académica">
+                </a>
+                <p>Guía Académica</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="consegc" class="doc-container">
+        <div class="doc-row">
+            <div class="doc-box">
+                <a href="delegaciones.pdf" target="_blank">
+                    <img src="1delegaciones.png" alt="Delegaciones">
+                </a>
+                <p>Delegaciones</p>
+            </div>
+            <div class="doc-box">
+                <a href="guia_academica.pdf" target="_blank">
+                    <img src="3guia.png" alt="Guía Académica">
+                </a>
+                <p>Guía Académica</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="discurso" class="doc-container">
+        <p>Guía para hacer el discurso de apertura</p>
+        <a href="discurso.pdf" target="_blank">
+            <img src="discurso.png" alt="Discurso de Apertura">
+        </a>
+    </div>
+
+    <div id="portafolio" class="doc-container">
+        <p>Guía para realizar el portafolio</p>
+        <a href="portafolio.pdf" target="_blank">
+            <img src="portafolio.png" alt="Portafolio">
+        </a>
+    </div>
+
+    <script>
+        function mostrarSeccion(id) {
+            document.querySelectorAll('.doc-container').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+    
+</body>
+</html>
+git clone https://github.com/JJL0/JJL0.github.io.git
